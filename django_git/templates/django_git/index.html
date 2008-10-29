@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load repositories %}
+
+{% block title %}
+    Repositories
+{% endblock %}
+
+{% block main_content %}
+    <table border="0">
+        <tr>
+            <th>Repository</th>
+            <th>Last Commit</th>
+            <th>Last Commit Author</th>
+        </tr>
+        {% for repo in repos %}
+        <tr>
+            <td><a href="{% url django-git-repo repo.path|name %}">{{ repo.path|name }}</a></td>
+            <td>{{ repo.commits.0.message }}</td>
+            <td>{{ repo.commits.0.author.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

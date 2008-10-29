@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load repositories %}
+
+{% block title %}
+    {{ repo.path|name }}
+{% endblock %}
+
+{% block main_content %}
+    <table border="0">
+        <tr>
+            <th>Commit</th>
+            <th>Message</th>
+            <th>Author</th>
+            <th>Date</th>
+        </tr>
+        {% for commit in repo.commits %}
+        <tr>
+            <td><a href="{% url django-git-diff repo.path|name commit %}">{{ commit|first_eight }}</a></td>
+            <td>{{ commit.message }}</td>
+            <td>{{ commit.committer.name }}</td>
+            <td>{{ commit.committed_date|tuple_to_date|date:"m/d/Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
