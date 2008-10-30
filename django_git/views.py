@@ -21,4 +21,4 @@ def blob(request, repo, commit):
     file = request.GET.get('file', '')
     blob = get_blob(repo, commit, file)
     lexer = guess_lexer_for_filename(blob.basename, blob.data)
-    return HttpResponse(highlight(blob.data, lexer, HtmlFormatter(cssclass="pygment_highlight")))
+    return HttpResponse(highlight(blob.data, lexer, HtmlFormatter(cssclass="pygment_highlight", linenos='inline')))

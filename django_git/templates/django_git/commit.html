@@ -18,15 +18,15 @@
             <p>
                 <span id="f{{ forloop.counter }}">{{ d.a_path }}</span>
                 &nbsp;&nbsp;&nbsp;
-                <a href="#" onclick="$('#d{{ forloop.counter }}').toggle(); return false;">diff</a> | 
+                <a href="#" id="dl{{ forloop.counter }}" class="diff-link">diff</a> | 
                 {% if not d.deleted_file %}
-                    <a href="#" id="{{ forloop.counter }}" class="blob-link">blob</a>
+                    <a href="#" id="bl{{ forloop.counter }}" class="blob-link">blob</a>
                 {% else %}
                     File deleted (no blob available)
                 {% endif %}
             </p>
-            <div id="d{{ forloop.counter }}" style="display: none;">{% stylize 'diff' %}{{ d.diff|safe }}{% endstylize %}</div>
-            <div id="b{{ forloop.counter }}" style="display: none;"></div>
+            <div id="d{{ forloop.counter }}" style="display: none;" class="diff">{% stylize 'diff' %}{{ d.diff|safe }}{% endstylize %}</div>
+            <div id="b{{ forloop.counter }}" style="display: none;" class="blob"></div>
         {% endfor %}
     {% else %}
         <p>No diff information.</p>
