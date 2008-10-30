@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load stylize %}
+{% load repositories %}
+
+{% block extra_head %}
+    <script src="/static/js/commit.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block title %}
+    {{ repo.path|name }} : {{ commit|first_eight }}
+{% endblock %}
+
+{% block main_content %}
+    <p id="commit" style="display: none;">{{ commit }}</p>
+    {% if diffs %}
+        {% for d in diffs %}
+            <p>
+                <span id="f{{ forloop.counter }}">{{ d.a_path }}</span>
+                &nbsp;&nbsp;&nbsp;
+                <a href="#" onclick="$('#d{{ forloop.counter }}').toggle(); return false;">diff</a> | 
+                <a href="#" id="{{ forloop.counter }}" class="blob-link">blob</a>
+            </p>
+            <div id="d{{ forloop.counter }}" style="display: none;">{% stylize 'diff' %}{{ d.diff|safe }}{% endstylize %}</div>
+            <div id="b{{ forloop.counter }}" style="display: none;"></div>
+        {% endfor %}
+    {% else %}
+        <p>No diff information.</p>
+    {% endif %}
+{% endblock %}
