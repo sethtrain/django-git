@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='django_git',
@@ -18,5 +18,5 @@ setup(
     author_email='sethtrain@gmail.com',
     url='http://code.google.com/p/django-git',
     packages=['django_git'],
-    requires=['GitPython (>=0.1.4)', 'Pygments (>=0.11)'],
+    install_requires=['GitPython (>=0.1.4)', 'Pygments (>=0.11)'],
 )
