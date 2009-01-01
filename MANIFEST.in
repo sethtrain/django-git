@@ -1,0 +1,2 @@
+recursive-include django_git/media *.js
+recursive-include django_git/templates *.html

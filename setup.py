@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from setuptools import setup
 
 setup(
@@ -17,6 +16,8 @@ setup(
     author='Seth Buntin',
     author_email='sethtrain@gmail.com',
     url='http://code.google.com/p/django-git',
-    packages=['django_git'],
+    packages=['django_git', 'django_git.templatetags'],
+    package_data={ 'django_git' : ['templates/django_git/*.html', 'media/js/*.js']},
+    zip_safe=False,
     install_requires=['GitPython >=0.1.4', 'Pygments >=0.11'],
 )
