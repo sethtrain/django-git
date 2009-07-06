@@ -24,12 +24,10 @@ def get_commit(name, commit):
 def get_blob(repo, commit, file):
     repo = get_repo(repo)
     commit = repo.commit(commit)
-    file = file.split('/')
-    length = len(file)
     tree = commit.tree
-    for item in xrange(len(file)):
-        if isinstance(tree.get(file[item]), Tree):
-            tree = tree.get(file[item])
+    for path_seg in file.split('/'):
+        if isinstance(tree.get(path_seg), Tree):
+            tree = tree.get(path_seg)
         else:
-            blob = tree.get(file[item])
+            blob = tree.get(path_seg)
     return blob
