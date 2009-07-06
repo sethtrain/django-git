@@ -25,7 +25,7 @@ def get_blob(repo, commit, file):
     repo = get_repo(repo)
     commit = repo.commit(commit)
     tree = commit.tree
-    for path_seg in file.split('/'):
+    for path_seg in file.split(os.sep):
         t = tree.get(path_seg)
         if isinstance(t, Tree):
             tree = t
