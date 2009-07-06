@@ -15,6 +15,7 @@ def repo(request, repo, template_name='django_git/repo.html'):
     return render_to_response(template_name, {'repo': get_repo(repo)}, context_instance=RequestContext(request))
 
 def commit(request, repo, commit, template_name='django_git/commit.html'):
+    print repo, commit
     return render_to_response(template_name, {'diffs': get_commit(repo, commit).diffs, 'repo': get_repo(repo), 'commit': commit }, context_instance=RequestContext(request))
 
 def blob(request, repo, commit):
