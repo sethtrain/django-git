@@ -31,3 +31,5 @@ Requirements
 
 * Pygments
 * GitPython
+
+If you would like to get started with django-git [Hugh Brown](http://github.com/hughdbrown) has created [Django-git-tester](http://github.com/hughdbrown/Django-git-tester).
