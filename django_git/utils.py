@@ -14,7 +14,8 @@ def get_repos():
     return repos
 
 def get_repo(name):
-    return Repo(os.path.join(settings.REPOS_ROOT, name))
+    repo_path = os.path.join(settings.REPOS_ROOT, dir)
+    return Repo(repo_path)
 
 def get_commit(name, commit):
     repo = get_repo(name)
@@ -26,8 +27,9 @@ def get_blob(repo, commit, file):
     commit = repo.commit(commit)
     tree = commit.tree
     for path_seg in file.split('/'):
-        if isinstance(tree.get(path_seg), Tree):
-            tree = tree.get(path_seg)
+        t = tree.get(path_seg)
+        if isinstance(t, Tree):
+            tree = t
         else:
-            blob = tree.get(path_seg)
+            blob = t
     return blob
