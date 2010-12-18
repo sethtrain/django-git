@@ -25,7 +25,13 @@ And don't forget to include the urls.py:
         ...
     )
 
-Last, make sure you include the file located in the media directory in your project media location so that the ajax and javascript calls will work correctly. If you have a better way of doing this I would be glad to hear.
+Then collect the static files, ensuring AppDirectoriesFinder is in STATICFILES_FINDERS:
+
+    ./manage.py collectstatic -n
+    # And if that outputs some js/jquery-1.2.6.min.js file and our js/commit.js, continue
+    ./manage.py collectstatic
+
+If there are name resolution issues with commit.js, rename it in templates/django_git/commit.html and move it appropriately.
 
 With the use of [auto_render](http://djangosnippets.org/snippets/559/), using this app in other projects/apps is much simpler. Apps, not wanting to show the repo/commit/blob directly but handle them in their own way, can simply call the view with only_context=True:
 
@@ -44,6 +50,7 @@ Requirements
 
 * Pygments
 * GitPython
+* Django 1.3 (alpha or better)
 
 If you would like to get started with django-git [Hugh Brown](http://github.com/hughdbrown) has created [Django-git-tester](http://github.com/hughdbrown/Django-git-tester).
 
