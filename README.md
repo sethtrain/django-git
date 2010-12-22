@@ -53,3 +53,9 @@ Requirements
 * Django 1.3 (alpha or better)
 
 If you would like to get started with django-git [Hugh Brown](http://github.com/hughdbrown) has created [Django-git-tester](http://github.com/hughdbrown/Django-git-tester).
+
+Thanks!
+-------
+* Christos Trochalakis
+* Hugh Brown
+* Fahrzin Hemmati
