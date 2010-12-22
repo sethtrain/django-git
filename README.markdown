@@ -3,7 +3,7 @@ README
 
 Get the code via svn:
 
-    svn checkout http://django-git.googlecode.com/svn/trunk/ django-git
+    git checkout git://github.com/sethtrain/django-git.git
 
 Add the django-git/django_git folder to your PYTHONPATH.
 
@@ -53,4 +53,3 @@ Requirements
 * Django 1.3 (alpha or better)
 
 If you would like to get started with django-git [Hugh Brown](http://github.com/hughdbrown) has created [Django-git-tester](http://github.com/hughdbrown/Django-git-tester).
-
